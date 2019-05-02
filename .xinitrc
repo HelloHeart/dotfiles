@@ -32,7 +32,7 @@ redshift &
 emacs &
 vlc &
 trayer &
-feh --bg-scale --no-fehbg ~/Pictures/chapter-1.jpg &
+feh --bg-scale --no-fehbg ~/Pictures/witch-hat-atelier-chapter-1.jpg &
 export _JAVA_AWT_WM_NONREPARENTING=1
 # exec dwm
 while :
