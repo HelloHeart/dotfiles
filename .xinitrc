@@ -34,6 +34,7 @@ vlc &
 trayer &
 feh --bg-scale --no-fehbg ~/Pictures/witch-hat-atelier-chapter-1.jpg &
 export _JAVA_AWT_WM_NONREPARENTING=1
+export PATH="/usr/share/icons/breeze/:$PATH"
 # exec dwm
 while :
 do

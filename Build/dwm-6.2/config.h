@@ -30,8 +30,8 @@ static const Rule rules[] = {
 			     { "Gimp",     NULL,       NULL,       0,            1,           -1 },
 			     { "Firefox",  NULL,       NULL,       1,            0,           -1 },
 			     { "Emacs",    NULL,       NULL,       1 << 1,       0,           -1 },
-			     { "Vlc",      NULL,       NULL,       1 << 2,       0,           -1 },
-			     { "Trayer",   NULL,       NULL,       1 << 8,       0,           -1 },
+			     { "vlc",      NULL,       NULL,       1 << 2,       0,           -1 },
+			     { "trayer",   NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
