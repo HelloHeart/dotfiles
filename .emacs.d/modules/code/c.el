@@ -1,3 +1,2 @@
-(use-package disaster
-  :after (c-mode)
-  :config (setq disaster-objdump "objdump -d -M intel -Sl --no-show-raw-insn"))
+(use-package rmsbolt
+  :hook (c-mode . rmsbolt-mode))
