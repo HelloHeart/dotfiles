@@ -19,3 +19,7 @@
          slime-repl-prompt-face
          rear-nonsticky
          (slime-repl-prompt read-only font-lock-face intangible))))))
+
+(use-package slime-company
+  :after slime
+  :init (slime-setup '(slime-fancy slime-company)))
