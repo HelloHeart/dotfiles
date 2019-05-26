@@ -10,13 +10,13 @@
  '(column-number-mode t)
  '(custom-file "~/.emacs.d/modules/custom.el")
  '(custom-safe-themes
-   (quote
-    ("f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" default)))
+   '("f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" default))
  '(delete-selection-mode t)
  '(display-battery-mode t)
  '(display-time-day-and-date t)
  '(display-time-mode t)
  '(fci-rule-color "#6272a4")
+ '(gdb-many-windows t)
  '(inhibit-startup-screen t)
  '(initial-buffer-choice t)
  '(initial-scratch-message "")

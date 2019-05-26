@@ -76,7 +76,7 @@
   ;; c-mode
   (evil-leader/set-key-for-mode 'c-mode 
     "mc" 'compile
-    "md" 'disaster))
+    "md" 'rmsbolt-compile))
 
 (defun sudo-save ()
   "save the current buffer as a sudo user, overwriting the existing file"

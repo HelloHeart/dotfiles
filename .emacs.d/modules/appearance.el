@@ -16,3 +16,9 @@
   :config (setq golden-ratio-auto-scale t)
   (add-to-list 'golden-ratio-extra-commands 'ace-window)
   (add-to-list 'golden-ratio-extra-commands 'ace-swap-window))
+;; (use-package nyan-mode
+;;   :init (nyan-mode)
+;;   ;; uses way too much cpu
+;;   ;; (nyan-start-animation)
+;;   :config (setq nyan-animate-nyancat t
+;; 		nyan-wavy-trail t))
