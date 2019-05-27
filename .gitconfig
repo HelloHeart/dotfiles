@@ -1,0 +1,9 @@
+[user]
+	email = amol.dosanjh@mail.utoronto.ca
+	name = Amol Dosanjh
+[color]
+	ui = true
+[format]
+	pretty = oneline
+[credential]
+	username = HelloHeart
