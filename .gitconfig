@@ -7,3 +7,5 @@
 	pretty = oneline
 [credential]
 	username = HelloHeart
+[merge]
+	ff = no

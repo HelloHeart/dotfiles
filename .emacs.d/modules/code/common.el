@@ -21,3 +21,4 @@
   :init (use-package flycheck-pos-tip
           :hook (flycheck-mode . flycheck-pos-tip-mode)
           :config (setq flycheck-pos-tip-timeout -1)))
+(electric-pair-mode 1)
