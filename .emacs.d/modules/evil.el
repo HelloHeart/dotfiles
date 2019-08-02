@@ -4,8 +4,8 @@
 	  (global-evil-leader-mode)
 	  (evil-mode)))
 (use-package evil-collection
-  :after (evil))
-  ;;:init (evil-collection-init))
+  :after (evil)
+  :init (evil-collection-init))
 (use-package evil-nerd-commenter
   :after (evil))
 (use-package treemacs-evil
