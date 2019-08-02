@@ -33,7 +33,7 @@ URxvt*scrollBar_right:   false
 
 URxvt*transparent:       false
 
-URxvt.font: xft:Terminus:pixelsize=18
+URxvt.font: xft:Roboto:pixelsize=16
 URxvt.letterSpace: 0
 
 *antialias:  true

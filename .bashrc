@@ -32,8 +32,12 @@ fi
 
 [ -z "${PATH##*/sbin*}" ] || PATH=$PATH:/sbin:/usr/sbin
 
+[ -z "${PATH##*/home/amol/.local/bin*}" ] || PATH=$PATH:"/home/amol/.local/bin"
+
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 export PAGER=less
 export VISUAL=emacsclient
 export EDITOR=emacsclient
+export LC_ALL=en_US.UTF-8
+export PYTHONBINDING=UTF-8
