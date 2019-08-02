@@ -25,17 +25,19 @@ xdg-user-dirs-update &
 xmodmap ~/.Xmodmap &
 xrdb .Xresources &
 compton &
-slstatus &
 nm-applet & 
 volumeicon & 
-redshift &
+redshift -t 3500:5500 &
 emacs &
-vlc &
-trayer &
+workrave &
+stalonetray &
 feh --bg-scale --no-fehbg ~/Pictures/witch-hat-atelier-chapter-1.jpg &
 export _JAVA_AWT_WM_NONREPARENTING=1
-export PATH="/usr/share/icons/breeze/:$PATH"
-# exec dwm
+#export PATH="/usr/share/icons/breeze/:$PATH"
+
+# debian xfce4
+
+#exec xmonad
 while :
 do
     ssh-agent dwm
