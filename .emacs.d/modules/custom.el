@@ -29,6 +29,7 @@
  '(objed-cursor-color "#ff5555")
  '(package-enable-at-startup nil)
  '(recentf-mode t)
+ '(savehist-mode t)
  '(scroll-bar-mode nil)
  '(scroll-conservatively 128)
  '(show-paren-mode t)
