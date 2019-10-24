@@ -10,3 +10,6 @@
 (use-package smex)
 (use-package which-key
   :init (which-key-mode))
+(use-package undohist
+  :config (undohist-initialize))
+;;:config (setq undohist-directory "")

@@ -2,7 +2,10 @@
   :after (evil-leader) ;; to enable evil-leader in initial buffers
   :init (progn
 	  (global-evil-leader-mode)
-	  (evil-mode)))
+	  (evil-mode))
+  :config (setq evil-move-beyond-eol t))
+(use-package evil-cleverparens
+  :after (evil))
 (use-package evil-collection
   :after (evil)
   :init (evil-collection-init))
@@ -27,6 +30,8 @@
   :config
   (evil-leader/set-leader "<SPC>")
   ;; common
+  ;; sorted by comment header alphabetical order
+  ;; shouldn't have any commands to edit text, so move the comments to normal vim somehow
   (evil-leader/set-key
     ;; buffer keybinding
     "bb" 'switch-to-buffer
@@ -40,7 +45,7 @@
     "cp" 'evilnc-comment-or-uncomment-paragraphs
     "cr" 'comment-or-uncomment-region
     "ci" 'evilnc-toggle-invert-comment-line-by-line ;; inverts comments instead of just commenting them
-    ;; eval keybindings
+    ;; eval keybindings, should go to common lisp bindings (maybe)
     "eb" 'eval-buffer
     "ee" 'eval-last-sexp
     "ef" 'eval-defun
@@ -65,18 +70,28 @@
     "sf" 'imenu
     "sr" 'full-buffer-query-replace
     "ss" 'swiper-isearch
+    ;; treemacs
+    "td" 'treemacs-delete
+    "tp" 'treemacs-projectile
+    "tt" 'treemacs-select-window
     ;; window keybindings
     "wd" 'delete-window
     "wh" 'split-window-below
-    "wo" 'ace-window
+    "ww" 'ace-window
     "ws" 'ace-swap-window
     "wv" 'split-window-right
     ;; M-x
     "<SPC>" 'counsel-M-x)
   ;; c-mode
-  (evil-leader/set-key-for-mode 'c-mode 
+  (evil-leader/set-key-for-mode 'c-mode
     "mc" 'compile
-    "md" 'rmsbolt-compile))
+    "md" 'rmsbolt-compile)
+  (evil-leader/set-key-for-mode 'clojure-mode
+    "eb" 'cider-eval-buffer
+    "ee" 'cider-eval-last-sexp
+    "ef" 'cider-eval-defun-at-point
+    "er" 'cider-eval-region
+    "x"  'region-or-expr))
 
 (defun sudo-save ()
   "save the current buffer as a sudo user, overwriting the existing file"

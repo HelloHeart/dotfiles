@@ -41,3 +41,7 @@ export VISUAL=emacsclient
 export EDITOR=emacsclient
 export LC_ALL=en_US.UTF-8
 export PYTHONBINDING=UTF-8
+
+export PATH="/home/amol/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
