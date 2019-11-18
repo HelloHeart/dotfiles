@@ -44,4 +44,4 @@ export PYTHONBINDING=UTF-8
 
 export PATH="/home/amol/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"
