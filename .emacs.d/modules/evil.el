@@ -57,6 +57,8 @@
     "fr" 'rename-file
     "fs" 'save-buffer
     ;; jumping
+    "jb" 'dumb-jump-back
+    "jd" 'dumb-jump-go
     "jj" 'evil-avy-goto-char-timer
     "jl" 'evil-avy-goto-line
     ;; quitting

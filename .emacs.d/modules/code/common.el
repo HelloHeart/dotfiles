@@ -23,6 +23,8 @@
           :hook (flycheck-mode . flycheck-pos-tip-mode)
           :config (setq flycheck-pos-tip-timeout -1)))
 (electric-pair-mode 1)
+(use-package dumb-jump
+  :config (setq dumb-jump-selector 'ivy))
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
