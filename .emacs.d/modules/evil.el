@@ -20,7 +20,8 @@
   :after (evil)
   :init (evil-escape-mode)
   :config (setq evil-escape-key-sequence "jk"
-		evil-escape-delay 0.2))
+		evil-escape-delay 0.2
+		evil-escape-unordered-key-sequence t))
 (use-package evil-goggles
   :after (evil)
   :init (evil-goggles-mode)
@@ -56,6 +57,8 @@
     "fo" 'sudo-save
     "fr" 'rename-file
     "fs" 'save-buffer
+    ;; git
+    "gs" 'magit-status
     ;; jumping
     "jb" 'dumb-jump-back
     "jd" 'dumb-jump-go
