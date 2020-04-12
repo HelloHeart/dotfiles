@@ -81,10 +81,10 @@
     "tt" 'treemacs-select-window
     ;; window keybindings
     "wd" 'delete-window
-    "wh" 'split-window-below
+    "wh" 'split-window-and-follow-horizontally
     "ww" 'ace-window
     "ws" 'ace-swap-window
-    "wv" 'split-window-right
+    "wv" 'split-window-and-follow-vertically
     ;; M-x
     "<SPC>" 'counsel-M-x)
   ;; c-mode
@@ -112,3 +112,14 @@
     (goto-char (point-min))
     (call-interactively `query-replace-regexp)
     (goto-char old-point)))
+(defun split-window-and-follow-horizontally ()
+  (interactive)
+  (split-window-below)
+  (balance-windows)
+  (other-window 1))
+
+(defun split-window-and-follow-vertically ()
+  (interactive)
+  (split-window-right)
+  (balance-windows)
+  (other-window 1))

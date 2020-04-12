@@ -1,2 +1,69 @@
 (use-package haskell-mode
-  :config (setq haskell-mode-stylish-haskell-path "brittany"))
+  :custom
+  (haskell-process-type 'cabal-new-repl)
+  (haskell-process-suggest-remove-import-lines t)
+  (haskell-process-auto-import-loaded-modules t)
+  (haskell-process-log t)
+  (haskell-tags-on-save t)
+
+  (haskell-indentation-layout-offset 4)
+  (haskell-indentation-starter-offset 4)
+  (haskell-indentation-left-offset 4)
+  (haskell-indentation-where-pre-offset 4)
+  (haskell-indentation-where-post-offset 4)
+  :config
+  (defun haskell-mode-setup ()
+    (interactive-haskell-mode)
+    (setq tab-width 2)
+    (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
+    (define-key evil-normal-state-map (kbd "C-]") 'haskell-mode-goto-loc)
+    (define-key evil-normal-state-map (kbd "C-c C-]") 'haskell-mode-tag-find)
+    (define-key evil-normal-state-map (kbd "C-c C-t") 'haskell-mode-show-type-at))
+  (add-hook 'haskell-mode-hook 'haskell-mode-setup))
+
+(use-package flycheck-haskell
+  :config
+  (setq-default flycheck-disabled-checkers '(haskell-stack-ghc))
+  (add-hook 'haskell-mode-hook #'flycheck-haskell-setup))
+
+(use-package company-ghci
+  :after (pos-tip)
+  :config
+  (defun show-hoogle-info-in-popup ()
+    (pos-tip-show (company-ghci/hoogle-info (symbol-at-point)) nil nil nil -1))
+  (defun company-ghci-setup ()
+    (define-key evil-normal-state-map (kbd "C-;") (lambda () (interactive) (show-hoogle-info-in-popup))))
+  (push 'company-ghci company-backends)
+  (add-hook 'haskell-interactive-mode-hook 'company-mode)
+  (add-hook 'haskell-mode-hook 'company-ghci-setup))
+
+
+
+
+
+
+;; (use-package haskell-mode
+;;   ;; :hook (
+;;   ;;(haskell-mode . 'turn-on-haskell-indent)
+;;   ;;	 )
+;; 					;:bind (:map 'interactive-haskell-mode-map
+;; 					;  ("C-c ." . 'haskell-mode-goto-loc)
+;; 					; ("C-c t" . 'haskell-mode-show-type-at))
+;;   :config
+;;   (require 'haskell)
+;;   (require 'haskell-mode)
+;;   (require 'haskell-interactive-mode)
+;;   (require 'autoinsert)
+;;   (setq haskell-ask-also-kill-buffers nil
+;; 	haskell-indentation-layout-offset 4
+;; 	haskell-indentation-mode nil
+;; 	interactive-haskell-mode 1
+;; 	haskell-indentation-left-offset 4
+;; 	haskell-process-args-cabal-repl (quote ("--ghc-option=-ferror-spans" "--ghc-option=-fshow-loaded-modules"
+;; 						"--ghc-option=-fdefer-type-errors"))
+;; 	haskell-process-args-ghci (quote ("-ferror-spans" "-fshow-loaded-modules" "-fdefer-type-errors"))
+;; 	haskell-indent-mode nil
+;; 	))
+
+
+;; ;; get to work later: auto enable haskell-indentation-mode
