@@ -7,7 +7,9 @@
   :after company
   :hook (prog-mode . company-quickhelp-local-mode))
 (use-package smartparens
-  :hook (prog-mode . smartparens-mode)
+  ;;  :hook (prog-mode . smartparens-mode)
+  :bind (("C-c C-<right>" . sp-slurp-hybrid-sexp)
+	 ("C-c C-<left>" . sp-forward-barf-sexp))
   :config (require 'smartparens-config)
   (smartparens-global-strict-mode))
 (use-package rainbow-delimiters
