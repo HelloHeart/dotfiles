@@ -125,4 +125,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-PATH=$PATH:/home/amol/.local/bin
+export PATH=$PATH:/home/amol/.local/bin
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
