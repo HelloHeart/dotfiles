@@ -24,7 +24,6 @@
   :init (use-package flycheck-pos-tip
           :hook (flycheck-mode . flycheck-pos-tip-mode)
           :config (setq flycheck-pos-tip-timeout -1)))
-(electric-pair-mode 1)
 (use-package dumb-jump
   :config (setq dumb-jump-selector 'ivy))
 
@@ -70,4 +69,3 @@
   ;;:bind (:map global-map
   ;;  ("C-c o p" . treemacs-projectile)))
   )
-

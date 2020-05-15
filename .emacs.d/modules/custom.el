@@ -5,6 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#282a36" "#ff5555" "#50fa7b" "#f1fa8c" "#61bfff" "#ff79c6" "#8be9fd" "#f8f8f2"])
+ '(auto-insert (quote not-modified))
+ '(auto-insert-mode t)
  '(battery-mode-line-format " [ %b%p%% | %t ] ")
  '(battery-mode-line-limit 50)
  '(column-number-mode t)
@@ -13,11 +15,13 @@
    (quote
     ("f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" default)))
  '(delete-selection-mode t)
+ '(desktop-save-mode t)
  '(display-battery-mode t)
  '(display-time-day-and-date t)
  '(display-time-mode t)
  '(fci-rule-color "#6272a4")
  '(gdb-many-windows t)
+ '(help-window-select t)
  '(inhibit-startup-buffer-menu t)
  '(inhibit-startup-screen t)
  '(initial-buffer-choice nil)
@@ -27,7 +31,11 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#1E2029" "#565761"))
  '(menu-bar-mode nil)
  '(objed-cursor-color "#ff5555")
+ '(org-roam-directory "~/org-roam/")
  '(package-enable-at-startup nil)
+ '(recentf-keep
+   (quote
+    (recentf-keep-default-predicate "~/.emacs.d/modules/keys.el")))
  '(recentf-mode t)
  '(savehist-mode t)
  '(scroll-bar-mode nil)
@@ -55,8 +63,9 @@
     (cons 320 "#80565d")
     (cons 340 "#6272a4")
     (cons 360 "#6272a4")))
- '(vc-annotate-very-old-color nil))
- 
+ '(vc-annotate-very-old-color nil)
+ '(which-key-idle-delay 0.5))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

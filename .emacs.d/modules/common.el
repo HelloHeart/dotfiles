@@ -9,7 +9,11 @@
   :init (counsel-mode))
 (use-package smex)
 (use-package which-key
-  :init (which-key-mode))
+  :init (which-key-mode)
+  :config (which-key-add-key-based-replacements
+	   (kbd "C-c o") "open organizer"))
 (use-package undohist
   :config (undohist-initialize))
-;;:config (setq undohist-directory "")
+(use-package expand-region)
+(use-package ag)
+(add-hook 'write-file-hooks 'delete-trailing-whitespace)

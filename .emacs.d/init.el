@@ -19,6 +19,6 @@
   (let ((files (directory-files-recursively dir-path "\.el$")))
     (mapcar 'load-file files)))
 (load-directory "~/.emacs.d/modules/")
+(toggle-frame-maximized)
 
-(server-start)
 (put 'dired-find-alternate-file 'disabled nil)
