@@ -5,7 +5,7 @@
 # remember to install ghidra
 apt update
 yes | apt upgrade
-yes | apt install virt-manager gnome-boxes mpv redshift-gtk keepassxc yadm emacs youtube-dl python3-pip python3-setuptools python3-dev neovim openjdk-11-jdk woof gdb silversearcher-ag make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libvirt-daemon-system qemu-kvm libvirt-clients qemu-utils spice-client-gtk gir1.2-spiceclientgtk-3.0 atril
+yes | apt install virt-manager gnome-boxes mpv redshift-gtk keepassxc yadm emacs youtube-dl python3-pip python3-setuptools python3-dev neovim openjdk-11-jdk woof gdb silversearcher-ag make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libvirt-daemon-system qemu-kvm libvirt-clients qemu-utils spice-client-gtk gir1.2-spiceclientgtk-3.0 atril ffmpeg atomicparsley
 yes | apt remove qpdfview
 yes | apt autoremove
 sed -i 's/XKBOPTIONS="grp:alt_shift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll"/XKBOPTIONS="terminate:ctrl_alt_bksp,grp_led:scroll""/g' /etc/default/keyboard
