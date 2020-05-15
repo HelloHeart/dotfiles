@@ -3,7 +3,7 @@
 # if you need to run a command as "$user", run as sudo -u "$user" command
 # remember to install ghidra
 user="amol"
-if [ -z "$part" ]
+if [ -z "$1" ]
 then
     apt update
     yes | apt upgrade
@@ -14,8 +14,7 @@ then
     python_version="$(python -V | cut -d ' ' -f 2)"
     sudo -u "$user" pyenv install "$python_version"
     sudo -u "$user" pyenv global "$python_version"
-    part="1"
-    source "./hydra-setup.sh"
+    exec "./hydra-setup.sh next"
 else
     sudo -u "$user" git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
     sudo -u "$user" pip3 install wheel pwntools neovim keystone-engine ropper jedi rope flake8 autopep8 yapf black
