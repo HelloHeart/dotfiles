@@ -22,7 +22,6 @@ else
     #sudo -u "$user" git clone https://github.com/guyinatuxedo/nightmare.git
     #cd /home/"$user"
     sudo -u "$user" yadm clone https://github.com/HelloHeart/dotfiles
-    sudo -u "$user" yadm checkout laptop
     sed -i 's/XKBOPTIONS="grp:alt_shift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll"/XKBOPTIONS="terminate:ctrl_alt_bksp,grp_led:scroll""/g' /etc/default/keyboard
     sed -i 's/Option "DontZap" "Off"/Option "DontZap" "yes"/g' /etc/X11/xorg.conf.in
     yes | sudo apt install macchanger
