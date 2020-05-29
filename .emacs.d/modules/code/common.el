@@ -18,8 +18,8 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 (use-package projectile
   :hook (prog-mode . projectile-mode))
-(use-package aggressive-indent
-  :hook (prog-mode . aggressive-indent-mode))
+;;(use-package aggressive-indent
+;;  :hook (prog-mode . aggressive-indent-mode))
 (which-function-mode t)
 (use-package flycheck
   :hook (prog-mode . flycheck-mode)
