@@ -38,14 +38,14 @@
 					 :scheduled today)
 				  (:auto-parent))))
 
-(use-package org-wild-notifier
-  :config
-  (setq ;;org-wild-notifier-alert-time 1
-   alert-default-style 'libnotify
-   alert-persist-idle-time 60
-   alert-fade-time 60
-   )
-  (org-wild-notifier-mode))
+;; (use-package org-wild-notifier
+;;   :config
+;;   (setq ;;org-wild-notifier-alert-time 1
+;;    alert-default-style 'libnotify
+;;    alert-persist-idle-time 60
+;;    alert-fade-time 60
+;;    )
+;;   (org-wild-notifier-mode))
 
 (setq org-agenda-custom-commands
       '(("d" "Daily view"

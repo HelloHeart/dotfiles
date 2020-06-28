@@ -34,13 +34,14 @@
 (bind-key (kbd "M-z") 'zap-up-to-char)
 ;; undo
 (bind-key (kbd "C-z") 'undo-only)
-(bind-key (kbd "C-S-z") 'undo)
+(bind-key (kbd "C-S-z") #'undo)
 ;; search
 (bind-key (kbd "C-s") 'swiper)
 ;; completion
 (bind-key (kbd "C-/") 'company-complete)
 ;; mark
 (bind-key (kbd "C-;") 'er/expand-region)
+(bind-key (kbd "C-:") 'er/contract-region)
 ;; org-mode
 (bind-key (kbd "C-c o")
 	  (lambda () (interactive) (find-file "~/org/organizer.org")))

@@ -1,19 +1,37 @@
 (use-package magit)
 (use-package eldoc)
 (use-package company
+  :bind (("C-<tab>" . 'company-complete-common-or-cycle))
   :hook ((prog-mode . company-mode)
-	 (cider-repl-mode . company-mode)))
-(use-package company-box
-  :hook (company-mode . company-box-mode))
-(use-package company-quickhelp
-  :after company
-  :hook (prog-mode . company-quickhelp-local-mode))
+	 (slime-mode . (lambda () (company-mode -1)))
+   	 (cider-repl-mode . company-mode))
+  )
+
+;; (use-package company-box
+;;   :hook (company-mode . company-box-mode))
+;; (use-package company-quickhelp
+;;   :after company
+;; :hook (prog-mode . company-quickhelp-local-mode))
+
+(use-package lispy
+  :hook
+  ((clojure-mode . lispy-mode)
+   (cider-mode . lispy-mode)))
+
 (use-package smartparens
-  :bind (("C-c C-<right>" . sp-slurp-hybrid-sexp)
-	 ("C-c C-<left>" . sp-forward-barf-sexp))
+  ;; :bind (("C-M-f" . 'sp-forward-sexp)
+  ;; 	 ("C-M-b" . 'sp-backward-sexp)
+  ;; 	 ("C-)" . 'sp-forward-slurp-sexp)
+  ;; 	 ("C-(" . 'sp-backward-slurp-sexp)
+  ;; 	 ("M-)" . 'sp-forward-barf-sexp)
+  ;; 	 ("M-(" . 'sp-backward-barf-sexp)
+  ;; 	 ("C-S-s" . 'sp-splice-sexp)
+  ;; 	 ("C-S-<SPC>" . 'er/mark-outside-pairs)
+  ;; 	 ("C-M-p" . 'sp-backward-up-sexp)
+  ;; 	 ("C-M-n" . 'sp-down-sexp))
   :config
-  (require 'smartparens-config))
-(smartparens-global-strict-mode)
+  (require 'smartparens-config)
+  (smartparens-global-strict-mode t))
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 (use-package projectile

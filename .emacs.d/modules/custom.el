@@ -15,7 +15,6 @@
    (quote
     ("f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" default)))
  '(delete-selection-mode t)
- '(desktop-save-mode t)
  '(display-battery-mode t)
  '(display-time-day-and-date t)
  '(display-time-mode t)
