@@ -30,17 +30,28 @@
 (bind-key (kbd "C-x w q") 'delete-window)
 (bind-key (kbd "C-x w o") 'delete-other-windows)
 (bind-key (kbd "C-x w w") 'ace-window)
+(bind-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
+
 ;; typing
 (bind-key (kbd "M-z") 'zap-up-to-char)
+
+;; jumping
+(bind-key (kbd "C-x r j") 'counsel-register)
+(bind-key (kbd "M-g j") 'avy-goto-char-timer)
+
 ;; undo
 (bind-key (kbd "C-z") 'undo-only)
 (bind-key (kbd "C-S-z") 'undo)
+
 ;; search
 (bind-key (kbd "C-s") 'swiper)
+
 ;; completion
 (bind-key (kbd "C-/") 'company-complete)
+
 ;; mark
 (bind-key (kbd "C-;") 'er/expand-region)
+
 ;; org-mode
 (bind-key (kbd "C-c o")
 	  (lambda () (interactive) (find-file "~/org/organizer.org")))
