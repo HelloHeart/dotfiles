@@ -10,3 +10,5 @@ pip install --upgrade pip
 pip3 install wheel pwntools neovim keystone-engine ropper jedi rope flake8 autopep8 yapf black
 # needs to be run twice or else it doesn't install due to a possible error in keystone-engine
 pip3 install wheel pwntools neovim keystone-engine ropper jedi rope flake8 autopep8 yapf black
+pip3 install python-language-server[all]
+

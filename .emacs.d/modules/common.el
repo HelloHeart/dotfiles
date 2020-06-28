@@ -17,3 +17,14 @@
 (use-package expand-region)
 (use-package ag)
 (add-hook 'write-file-hooks 'delete-trailing-whitespace)
+(use-package keyfreq
+  :init
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+  :config
+  (setq keyfreq-excluded-commands
+	'(self-insert-command
+          forward-char
+          backward-char
+          previous-line
+          next-line)))
