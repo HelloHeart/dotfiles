@@ -4,7 +4,8 @@
   :bind (("C-<tab>" . 'company-complete-common-or-cycle))
   :hook ((prog-mode . company-mode)
 	 (slime-mode . (lambda () (company-mode -1)))
-   	 (cider-repl-mode . company-mode))
+   	 (cider-repl-mode . company-mode)
+	 (company-mode . yas-minor-mode))
   )
 
 ;; (use-package company-box
@@ -96,6 +97,7 @@
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          ;; (XXX-mode . lsp)
 	 (python-mode . lsp)
+	 (c++-mode . lsp)
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)

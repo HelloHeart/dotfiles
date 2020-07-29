@@ -15,8 +15,9 @@
 (use-package undohist
   :config (undohist-initialize))
 (use-package expand-region)
+(use-package ws-butler)
+(ws-butler-global-mode)
 (use-package ag)
-(add-hook 'write-file-hooks 'delete-trailing-whitespace)
 (use-package keyfreq
   :init
   (keyfreq-mode 1)
