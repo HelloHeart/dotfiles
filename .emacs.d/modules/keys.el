@@ -30,6 +30,7 @@
 (bind-key (kbd "C-x w q") 'delete-window)
 (bind-key (kbd "C-x w o") 'delete-other-windows)
 (bind-key (kbd "C-x w w") 'ace-window)
+(bind-key (kbd "C-x o") 'ace-window)
 (bind-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 
 ;; typing
@@ -58,6 +59,11 @@
 	  (lambda () (interactive) (find-file "~/org/organizer.org")))
 (bind-key (kbd "C-c a") 'org-agenda-list)
 (bind-key (kbd "C-c s") 'org-store-link)
+
+;; parens
+(bind-key (kbd "C-c <C-right>") 'sp-forward-slurp-sexp)
+(bind-key (kbd "C-c <C-left>") 'sp-forward-barf-sexp)
+
 
 ;; functions
 (defun sudo-save ()
