@@ -1,5 +1,6 @@
 (use-package magit)
 (use-package eldoc)
+(use-package yasnippet)
 (use-package company
   :bind (("C-<tab>" . 'company-complete-common-or-cycle))
   :hook ((prog-mode . company-mode)
