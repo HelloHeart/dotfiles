@@ -1,4 +1,63 @@
-(use-package haskell-mode)
+(use-package haskell-mode
+
+  :config
+  (defcustom haskell-formatter 'ormolu
+    "The Haskell formatter to use. One of: 'ormolu, 'stylish, nil. Set it per-project in .dir-locals."
+    :safe 'symbolp)
+
+  (defun haskell-smart-format ()
+    "Format a buffer based on the value of 'haskell-formatter'."
+    (interactive)
+    (cl-ecase haskell-formatter
+      ('ormolu (ormolu-format-buffer))
+      ('stylish (haskell-mode-stylish-buffer))
+      (nil nil)
+      ))
+
+  (defun haskell-switch-formatters ()
+    "Switch from ormolu to stylish-haskell, or vice versa."
+    (interactive)
+    (setq haskell-formatter
+          (cl-ecase haskell-formatter
+            ('ormolu 'stylish)
+            ('stylish 'ormolu)
+            (nil nil))))
+
+  ;; haskell-mode doesn't know about newer GHC features.
+  (let ((new-extensions '("QuantifiedConstraints"
+                          "DerivingVia"
+                          "BlockArguments"
+                          "DerivingStrategies"
+                          "StandaloneKindSignatures"
+                          )))
+    (setq
+     haskell-ghc-supported-extensions
+     (append haskell-ghc-supported-extensions new-extensions)))
+
+  ;; :bind (("C-c a c" . haskell-cabal-visit-file)
+  ;;        ("C-c a i" . haskell-navigate-imports)
+  ;;        ("C-c a I" . haskell-navigate-imports-return))
+  )
+
+(use-package haskell-snippets
+  :after (haskell-mode yasnippet)
+  :defer)
+
+(use-package lsp-haskell
+  :hook (haskell-mode . lsp)
+  :custom
+  (lsp-haskell-process-path-hie "ghcide")
+  (lsp-haskell-process-args-hie '())
+  (lsp-log-io t)
+  )
+
+(use-package ormolu)
+
+
+
+;;(use-package haskell-mode)
+
+
 ;; (use-package haskell-mode
 ;;   :custom
 ;;   (haskell-process-type 'cabal-new-repl)
