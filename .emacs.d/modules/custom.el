@@ -28,6 +28,8 @@
  '(jdee-db-active-breakpoint-face-colors (cons "#1E2029" "#bd93f9"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1E2029" "#50fa7b"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1E2029" "#565761"))
+ '(kill-whole-line t)
+ '(lsp-haskell-process-path-hie "ghcide" nil nil "Customized with use-package lsp-haskell")
  '(menu-bar-mode nil)
  '(objed-cursor-color "#ff5555")
  '(org-roam-directory "~/org-roam/")
@@ -64,3 +66,9 @@
     (cons 360 "#6272a4")))
  '(vc-annotate-very-old-color nil)
  '(which-key-idle-delay 0.5))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

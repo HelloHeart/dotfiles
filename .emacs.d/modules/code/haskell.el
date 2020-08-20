@@ -1,5 +1,7 @@
 (use-package haskell-mode
-
+  ;; :bind (("C-c a c" . haskell-cabal-visit-file)
+  ;;        ("C-c a i" . haskell-navigate-imports)
+  ;;        ("C-c a I" . haskell-navigate-imports-return))
   :config
   (defcustom haskell-formatter 'ormolu
     "The Haskell formatter to use. One of: 'ormolu, 'stylish, nil. Set it per-project in .dir-locals."
@@ -32,26 +34,85 @@
                           )))
     (setq
      haskell-ghc-supported-extensions
-     (append haskell-ghc-supported-extensions new-extensions)))
-
-  ;; :bind (("C-c a c" . haskell-cabal-visit-file)
-  ;;        ("C-c a i" . haskell-navigate-imports)
-  ;;        ("C-c a I" . haskell-navigate-imports-return))
-  )
+     (append haskell-ghc-supported-extensions new-extensions))))
 
 (use-package haskell-snippets
-  :after (haskell-mode yasnippet)
-  :defer)
+  :after (haskell-mode yasnippet))
 
 (use-package lsp-haskell
   :hook (haskell-mode . lsp)
   :custom
-  (lsp-haskell-process-path-hie "ghcide")
-  (lsp-haskell-process-args-hie '())
-  (lsp-log-io t)
-  )
+  (lsp-haskell-process-path-hie "stack")
+  (lsp-haskell-process-args-hie '(exec -- ghcide --lsp)))
 
 (use-package ormolu)
+
+
+;; (use-package haskell-mode)
+
+;; (use-package eglot
+;;   :config
+;;   (add-to-list 'eglot-server-programs '(haskell-mode . ("stack" "exec" "--" "ghcide" "--lsp"))))
+
+;; ;; LSP
+;; (use-package flycheck
+;;   :ensure t
+;;   :init
+;;   (global-flycheck-mode t))
+;; (use-package yasnippet
+;;   :ensure t)
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :hook (haskell-mode . lsp)
+;;   :commands lsp)
+;; (use-package lsp-haskell
+;;  :ensure t
+;;  :config
+;;  (setq lsp-haskell-process-path-hie "stack")
+;;  (setq lsp-haskell-process-args-hie '(exec -- ghcide --lsp))
+;;  ;; Comment/uncomment this line to see interactions between lsp client/server.
+;;  ;;(setq lsp-log-io t)
+;; )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;; (use-package flycheck-haskell
+;;   :config
+;;   (setq-default flycheck-disabled-checkers '(haskell-stack-ghc))
+;;   (add-hook 'haskell-mode-hook #'flycheck-haskell-setup))
+
+;; (use-package company-ghci
+;;   :after (pos-tip)
+;;   :config
+;;   (defun show-hoogle-info-in-popup ()
+;;     (pos-tip-show (company-ghci/hoogle-info (symbol-at-point)) nil nil nil -1))
+;;   ;; (defun company-ghci-setup ()
+;;   ;;   (define-key evil-normal-state-map (kbd "C-;") (lambda () (interactive) (show-hoogle-info-in-popup))))
+;;   (push 'company-ghci company-backends)
+;;   (add-hook 'haskell-interactive-mode-hook 'company-mode)
+;;   ;;(add-hook 'haskell-mode-hook 'company-ghci-setup)
+;;   )
+
+
+
+
+
 
 
 
@@ -81,22 +142,6 @@
 ;;     (define-key evil-normal-state-map (kbd "C-c C-t") 'haskell-mode-show-type-at))
 ;;   (add-hook 'haskell-mode-hook 'haskell-mode-setup))
 
-;; (use-package flycheck-haskell
-;;   :config
-;;   (setq-default flycheck-disabled-checkers '(haskell-stack-ghc))
-;;   (add-hook 'haskell-mode-hook #'flycheck-haskell-setup))
-
-;; (use-package company-ghci
-;;   :after (pos-tip)
-;;   :config
-;;   (defun show-hoogle-info-in-popup ()
-;;     (pos-tip-show (company-ghci/hoogle-info (symbol-at-point)) nil nil nil -1))
-;;   (defun company-ghci-setup ()
-;;     (define-key evil-normal-state-map (kbd "C-;") (lambda () (interactive) (show-hoogle-info-in-popup))))
-;;   (push 'company-ghci company-backends)
-;;   (add-hook 'haskell-interactive-mode-hook 'company-mode)
-;;   (add-hook 'haskell-mode-hook 'company-ghci-setup))
-
 
 
 
@@ -124,6 +169,3 @@
 ;; ;; 	haskell-process-args-ghci (quote ("-ferror-spans" "-fshow-loaded-modules" "-fdefer-type-errors"))
 ;; ;; 	haskell-indent-mode nil
 ;; ;; 	))
-
-
-;; ;; ;; get to work later: auto enable haskell-indentation-mode
