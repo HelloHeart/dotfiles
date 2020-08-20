@@ -12,6 +12,9 @@ templates:
     author-email: amol.dosanjh@mail.utoronto.ca
     copyright: Amol Dosanjh
     github-username: HelloHeart
+    
+ghc-options:
+  "$everything": -haddock
 
 # The following parameter specifies stack's output styles; STYLES is a
 # colon-delimited sequence of key=value, where 'key' is a style name and
@@ -19,3 +22,4 @@ templates:
 # Rendition) control codes (in decimal). Use "stack ls stack-colors --basic"
 # to see the current sequence.
 # stack-colors: STYLES
+# system-ghc: true

@@ -9,11 +9,15 @@
 	 (company-mode . yas-minor-mode))
   )
 
-;; (use-package company-box
-;;   :hook (company-mode . company-box-mode))
-;; (use-package company-quickhelp
-;;   :after company
-;; :hook (prog-mode . company-quickhelp-local-mode))
+(use-package company-box
+   :hook (company-mode . company-box-mode))
+
+(use-package company-quickhelp
+ :hook (company-mode . company-quickhelp-local-mode))
+
+(use-package company-lsp
+  :config
+  (push 'company-lsp company-backends))
 
 (use-package lispy
   :hook
@@ -21,31 +25,37 @@
    (cider-mode . lispy-mode)))
 
 (use-package smartparens
-  ;; :bind (("C-M-f" . 'sp-forward-sexp)
-  ;; 	 ("C-M-b" . 'sp-backward-sexp)
-  ;; 	 ("C-)" . 'sp-forward-slurp-sexp)
-  ;; 	 ("C-(" . 'sp-backward-slurp-sexp)
-  ;; 	 ("M-)" . 'sp-forward-barf-sexp)
-  ;; 	 ("M-(" . 'sp-backward-barf-sexp)
-  ;; 	 ("C-S-s" . 'sp-splice-sexp)
-  ;; 	 ("C-S-<SPC>" . 'er/mark-outside-pairs)
-  ;; 	 ("C-M-p" . 'sp-backward-up-sexp)
-  ;; 	 ("C-M-n" . 'sp-down-sexp))
+  :bind (("C-M-f" . 'sp-forward-sexp)
+  	 ("C-M-b" . 'sp-backward-sexp)
+  	 ("C-)" . 'sp-forward-slurp-sexp)
+  	 ("C-(" . 'sp-backward-slurp-sexp)
+  	 ("M-)" . 'sp-forward-barf-sexp)
+  	 ("M-(" . 'sp-backward-barf-sexp)
+  	 ("C-S-s" . 'sp-splice-sexp)
+  	 ("C-S-<SPC>" . 'er/mark-outside-pairs)
+  	 ("C-M-p" . 'sp-backward-up-sexp)
+  	 ("C-M-n" . 'sp-down-sexp))
   :config
   (require 'smartparens-config)
   (smartparens-global-strict-mode t))
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
+
 (use-package projectile
   :hook (prog-mode . projectile-mode))
+
 ;;(use-package aggressive-indent
 ;;  :hook (prog-mode . aggressive-indent-mode))
+
 (which-function-mode t)
+
 (use-package flycheck
   :hook (prog-mode . flycheck-mode)
   :init (use-package flycheck-pos-tip
           :hook (flycheck-mode . flycheck-pos-tip-mode)
           :config (setq flycheck-pos-tip-timeout -1)))
+
 (use-package dumb-jump
   :config (setq dumb-jump-selector 'ivy))
 
@@ -93,17 +103,22 @@
   ;;:bind (:map global-map
   ;;  ("C-c o p" . treemacs-projectile)))
   )
-
+;; recently added config to lsp-mode and lsp-ui
 (use-package lsp-mode
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          ;; (XXX-mode . lsp)
 	 (python-mode . lsp)
 	 (c++-mode . lsp)
+	 ;; lsp-haskell configured in haskell.el
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :commands lsp
+  :config
+  (setq lsp-prefer-flymake nil))
 
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui :commands lsp-ui-mode
+    :config
+  (lsp-ui-flycheck-enable t))
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 (use-package dap-mode)
