@@ -29,3 +29,9 @@
           backward-char
           previous-line
           next-line)))
+
+
+(use-package buffer-move)
+
+;;(use-package selectric-mode
+  ;;:init (selectric-mode))

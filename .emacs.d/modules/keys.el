@@ -32,6 +32,11 @@
 (bind-key (kbd "C-x w w") 'ace-window)
 (bind-key (kbd "C-x o") 'ace-window)
 (bind-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
+(bind-key (kbd "<C-S-up>")     'buf-move-up)
+(bind-key (kbd "<C-S-down>")   'buf-move-down)
+(bind-key (kbd "<C-S-left>")   'buf-move-left)
+(bind-key (kbd "<C-S-right>")  'buf-move-right)
+
 
 ;; typing
 (bind-key (kbd "M-z") 'zap-up-to-char)

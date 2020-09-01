@@ -31,13 +31,16 @@
 (use-package slime
   :defer t
   :commands (slime slime-lisp-mode-hook slime-mode)
+  :bind (:map lisp-mode-map
+	      ("C-c C-s" . 'slime))
   :config
   (setq slime-contribs '(slime-fancy slime-asdf slime-quicklisp slime-cl-indent)
-	inferior-lisp-program "/usr/bin/sbcl"
+	inferior-lisp-program "/usr/local/bin/sbcl"
 	slime-net-coding-system 'utf-8-unix
 	slime-complete-symbol*-fancy t
-	slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
-
+	slime-complete-symbol-function 'slime-fuzzy-complete-symbol
+	company-quickhelp-local-mode 0
+	)
   (slime-setup '(slime-fancy slime-asdf slime-quicklisp slime-company))
   (load (expand-file-name "~/.quicklisp/slime-helper.el"))
   ;; (ef-shackle '(sldb-mode :align bottom :size .4 :popup t :select t)

@@ -4,7 +4,7 @@
 (use-package company
   :bind (("C-<tab>" . 'company-complete-common-or-cycle))
   :hook ((prog-mode . company-mode)
-	 (slime-mode . (lambda () (company-mode -1)))
+	 ;;(slime-mode . (lambda () (company-mode -1)))
    	 (cider-repl-mode . company-mode)
 	 (company-mode . yas-minor-mode))
   )
@@ -12,8 +12,8 @@
 (use-package company-box
    :hook (company-mode . company-box-mode))
 
-(use-package company-quickhelp
- :hook (company-mode . company-quickhelp-local-mode))
+;; (use-package company-quickhelp
+;;  :hook (company-mode . company-quickhelp-local-mode))
 
 (use-package company-lsp
   :config
