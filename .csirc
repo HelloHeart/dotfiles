@@ -1,1 +1,3 @@
-(use numbers utf8 srfi-1 srfi-13)
+#;(import utf8 (chicken irregex) srfi-1 srfi-13 srfi-69)
+#;(editor-command "emacsclient")
+

@@ -1,3 +1,9 @@
+;; org-mode
+(bind-key (kbd "C-c o")
+	  (lambda () (interactive) (find-file "~/org/organizer.org")))
+(bind-key (kbd "C-c a") 'org-agenda-list)
+(bind-key (kbd "C-c s") 'org-store-link)
+
 (setq org-agenda-files '("~/org/")
       org-log-done 'time
       org-enforce-todo-dependencies t
@@ -16,6 +22,13 @@
 						    "\n"
 						    (org-agenda-format-date-aligned date)))
       org-todo-keywords '((sequence "TODO" "|" "DONE")))
+
+(use-package org-plus-contrib)
+
+(use-package org-fragtog
+  ;; latex support
+  :after org
+  :hook (org-mode . org-fragtog-mode))
 
 (org-babel-do-load-languages
  'org-babel-load-languages

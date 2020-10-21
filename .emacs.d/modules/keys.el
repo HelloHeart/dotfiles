@@ -59,12 +59,6 @@
 (bind-key (kbd "C-;") 'er/expand-region)
 (bind-key (kbd "C-:") 'er/contract-region)
 
-;; org-mode
-(bind-key (kbd "C-c o")
-	  (lambda () (interactive) (find-file "~/org/organizer.org")))
-(bind-key (kbd "C-c a") 'org-agenda-list)
-(bind-key (kbd "C-c s") 'org-store-link)
-
 ;; parens
 (bind-key (kbd "C-c <C-right>") 'sp-forward-slurp-sexp)
 (bind-key (kbd "C-c <C-left>") 'sp-forward-barf-sexp)

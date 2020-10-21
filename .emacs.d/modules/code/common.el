@@ -31,7 +31,7 @@
   	 ("C-(" . 'sp-backward-slurp-sexp)
   	 ("M-)" . 'sp-forward-barf-sexp)
   	 ("M-(" . 'sp-backward-barf-sexp)
-  	 ("C-S-s" . 'sp-splice-sexp)
+  	 ("C-M-s" . 'sp-splice-sexp)
   	 ("C-S-<SPC>" . 'er/mark-outside-pairs)
   	 ("C-M-p" . 'sp-backward-up-sexp)
   	 ("C-M-n" . 'sp-down-sexp))
@@ -109,10 +109,15 @@
          ;; (XXX-mode . lsp)
 	 (python-mode . lsp)
 	 (c++-mode . lsp)
+	 (elixir-mode . lsp)
 	 ;; lsp-haskell configured in haskell.el
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
+  :init
+  (add-to-list 'exec-path "~/Build/elixir/elixir-ls/" ;;"path-to-elixir-ls/release"
+	       )
   :commands lsp
+  :diminish lsp-mode
   :config
   (setq lsp-prefer-flymake nil))
 

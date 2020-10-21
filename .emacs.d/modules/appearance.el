@@ -13,14 +13,17 @@
 ;;     (load-theme 'doom-dracula t)))
 ;;(use-package darktooth-theme)
 (use-package zenburn-theme)
+;; (use-package jetbrains-darcula-theme
+;; 	       :config
+;; 	         (load-theme 'jetbrains-darcula t))
 (use-package golden-ratio
   :init (golden-ratio-mode t)
   :config (setq golden-ratio-auto-scale t)
   (add-to-list 'golden-ratio-extra-commands 'ace-window)
   (add-to-list 'golden-ratio-extra-commands 'ace-swap-window))
-(use-package nyan-mode
-  :init (nyan-mode)
+;;(use-package nyan-mode
+;;  :init (nyan-mode)
   ;; uses way too much cpu
-  (nyan-start-animation)
-  :config (setq nyan-animate-nyancat t
-		nyan-wavy-trail t))
+;;  (nyan-start-animation)
+;;  :config (setq nyan-animate-nyancat t
+;;		nyan-wavy-trail t))

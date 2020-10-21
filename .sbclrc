@@ -6,3 +6,18 @@
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
+;;; Modify this to work later
+;; (setf quickproject:*after-make-project-hooks*
+;;  (list
+;;   (lambda (pathname &rest args)
+;;     (declare (ignore args))
+;;     (nix:chdir (fad:pathname-as-directory pathname))
+;;     (rename-file "README.txt" "README.markdown")
+;;     (external-program:run "git"
+;;                           (list "init" "."))
+;;     (external-program:run "git"
+;;                           (list "add" "."))
+;;     (external-program:run "git"
+;;                           (list "commit" "-m" "Initial commit")))))
+;; You'll have to quickload some libraries first: '(:osicat :external-program :quickproject :cl-fad)
+;; I also like to set defaults for the quickproject *licence* and *author* variables.
