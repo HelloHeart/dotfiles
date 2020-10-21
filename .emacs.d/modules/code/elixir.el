@@ -1,1 +1,1 @@
-;;(use-package alchemist)
+(use-package elixir-mode)
