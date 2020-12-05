@@ -25,18 +25,23 @@
 ;;; Code:
 
 ;; windows
-(bind-key (kbd "C-x w r") 'split-window-and-follow-vertically)
-(bind-key (kbd "C-x w d") 'split-window-and-follow-horizontally)
+(bind-key (kbd "C-x w D") 'split-window-and-follow-vertically)
+(bind-key (kbd "C-x w R") 'split-window-and-follow-horizontally)
+(bind-key (kbd "C-x w d") 'split-window-vertically)
+(bind-key (kbd "C-x w r") 'split-window-horizontally)
 (bind-key (kbd "C-x w q") 'delete-window)
 (bind-key (kbd "C-x w o") 'delete-other-windows)
 (bind-key (kbd "C-x w w") 'ace-window)
 (bind-key (kbd "C-x o") 'ace-window)
 (bind-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
-(bind-key (kbd "<C-S-up>")     'buf-move-up)
-(bind-key (kbd "<C-S-down>")   'buf-move-down)
-(bind-key (kbd "<C-S-left>")   'buf-move-left)
-(bind-key (kbd "<C-S-right>")  'buf-move-right)
-
+(bind-key (kbd "C-x S-<up>") 'buf-move-up)
+(bind-key (kbd "C-x S-<down>") 'buf-move-down)
+(bind-key (kbd "C-x S-<left>") 'buf-move-left)
+(bind-key (kbd "C-x S-<right>") 'buf-move-right)
+(bind-key (kbd "C-x <up>") 'windmove-up)
+(bind-key (kbd "C-x <down>") 'windmove-down)
+(bind-key (kbd "C-x <left>") 'windmove-left)
+(bind-key (kbd "C-x <right>") 'windmove-right)
 
 ;; typing
 (bind-key (kbd "M-z") 'zap-up-to-char)
@@ -81,14 +86,14 @@
     (goto-char old-point)))
 (defun split-window-and-follow-horizontally ()
   (interactive)
-  (split-window-below)
-  (balance-windows)
+  (split-window-right)
+  ;;(balance-windows)
   (other-window 1))
 
 (defun split-window-and-follow-vertically ()
   (interactive)
-  (split-window-right)
-  (balance-windows)
+  (split-window-below)
+  ;;(balance-windows)
   (other-window 1))
 
 (provide 'keys)

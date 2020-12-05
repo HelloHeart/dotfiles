@@ -4,10 +4,10 @@
 (use-package company
   :bind (("C-<tab>" . 'company-complete-common-or-cycle))
   :hook ((prog-mode . company-mode)
-	 ;;(slime-mode . (lambda () (company-mode -1)))
-   	 (cider-repl-mode . company-mode)
-	 (company-mode . yas-minor-mode))
-  )
+   ;;(slime-mode . (lambda () (company-mode -1)))
+      (cider-repl-mode . company-mode)
+   (company-mode . yas-minor-mode)))
+
 
 (use-package company-box
    :hook (company-mode . company-box-mode))
@@ -19,22 +19,23 @@
   :config
   (push 'company-lsp company-backends))
 
-(use-package lispy
-  :hook
-  ((clojure-mode . lispy-mode)
-   (cider-mode . lispy-mode)))
+;; (use-package lispy
+;;   :hook
+;;   ((clojure-mode . lispy-mode)
+;;    (cider-mode . lispy-mode)
+;;    (common-lisp-mode . lispy-mode)))
 
 (use-package smartparens
   :bind (("C-M-f" . 'sp-forward-sexp)
-  	 ("C-M-b" . 'sp-backward-sexp)
-  	 ("C-)" . 'sp-forward-slurp-sexp)
-  	 ("C-(" . 'sp-backward-slurp-sexp)
-  	 ("M-)" . 'sp-forward-barf-sexp)
-  	 ("M-(" . 'sp-backward-barf-sexp)
-  	 ("C-M-s" . 'sp-splice-sexp)
-  	 ("C-S-<SPC>" . 'er/mark-outside-pairs)
-  	 ("C-M-p" . 'sp-backward-up-sexp)
-  	 ("C-M-n" . 'sp-down-sexp))
+     ("C-M-b" . 'sp-backward-sexp)
+     ("C-)" . 'sp-forward-slurp-sexp)
+     ("C-(" . 'sp-backward-slurp-sexp)
+     ("M-)" . 'sp-forward-barf-sexp)
+     ("M-(" . 'sp-backward-barf-sexp)
+     ("C-M-s" . 'sp-splice-sexp)
+     ("C-S-<SPC>" . 'er/mark-outside-pairs)
+     ("C-M-p" . 'sp-backward-up-sexp)
+     ("C-M-n" . 'sp-down-sexp))
   :config
   (require 'smartparens-config)
   (smartparens-global-strict-mode t))
@@ -99,23 +100,23 @@
         ([f8] . treemacs)))
 
 (use-package treemacs-projectile
-  :after treemacs projectile
+  :after treemacs projectile)
   ;;:bind (:map global-map
   ;;  ("C-c o p" . treemacs-projectile)))
-  )
+
 ;; recently added config to lsp-mode and lsp-ui
 (use-package lsp-mode
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          ;; (XXX-mode . lsp)
-	 (python-mode . lsp)
-	 (c++-mode . lsp)
-	 (elixir-mode . lsp)
-	 ;; lsp-haskell configured in haskell.el
+   (python-mode . lsp)
+   (c++-mode . lsp)
+   (elixir-mode . lsp)
+   ;; lsp-haskell configured in haskell.el
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
   :init
-  (add-to-list 'exec-path "~/Build/elixir/elixir-ls/" ;;"path-to-elixir-ls/release"
-	       )
+  (add-to-list 'exec-path "~/Build/elixir/elixir-ls/") ;;"path-to-elixir-ls/release"
+
   :commands lsp
   :diminish lsp-mode
   :config
@@ -123,8 +124,10 @@
 
 (use-package lsp-ui :commands lsp-ui-mode
     :config
-  (lsp-ui-flycheck-enable t))
+    (lsp-ui-flycheck-enable t)
+    (setq lsp-ui-doc-mode nil))
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 (use-package dap-mode)
+
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language

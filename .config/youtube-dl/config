@@ -1,1 +1,1 @@
---sub-lang en --write-sub -f '(bestvideo[height>=2160][ext=mp4]/bestvideo[height>=1440][ext=mp4]/bestvideo[height>=1080][ext=mp4]/bestvideo[height>=720][ext=mp4]/bestvideo[height>=480][ext=mp4]/bestvideo[height>=360][ext=mp4]/bestvideo[ext=mp4]/bestvideo)+bestaudio[ext=m4a]/best' -i --add-metadata --embed-thumbnail --embed-subs --all-subs -o "%(title)s.%(ext)s"
+--sub-lang en --user-agent "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" --write-sub -f best -i --add-metadata --embed-thumbnail --embed-subs --all-subs -o "%(title)s.%(ext)s"
