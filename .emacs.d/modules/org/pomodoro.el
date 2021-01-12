@@ -24,12 +24,12 @@
 
 ;;; Code:
 
-(use-package org-pomodoro
-  :after org
-  :config
-  (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
-  :bind (:map org-mode-map
-	      ("C-c C-x C-<tab>" . org-pomodoro)))
+;; (use-package org-pomodoro
+;;   :after org
+;;   :config
+;;   (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
+;;   :bind (:map org-mode-map
+;; 	      ("C-c C-x C-<tab>" . org-pomodoro)))
 
-(provide 'pomodoro)
-;;; pomodoro.el ends here
+;; (provide 'pomodoro)
+;; ;;; pomodoro.el ends here

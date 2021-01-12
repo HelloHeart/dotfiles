@@ -23,7 +23,7 @@
 						    (org-agenda-format-date-aligned date)))
       org-todo-keywords '((sequence "TODO" "|" "DONE")))
 
-(use-package org-plus-contrib)
+;; (use-package org-plus-contrib)
 
 (use-package org-fragtog
   ;; latex support

@@ -1,3 +1,5 @@
+
+
 (use-package cider
   :hook ((clojure-mode . cider-mode))
   :config(setq nrepl-log-messages t
@@ -14,24 +16,19 @@
   )
 
 
-
-(defun region-or-expr (start end)
-  (interactive "r")
-  (if (use-region-p)
-      (cider-eval-region start end)
-    (cider-eval-last-sexp)))
-
 (use-package flycheck-clj-kondo)
 
 (use-package clojure-mode
-  :config (require 'flycheck-clj-kondo))
+  :config (require 'flycheck-clj-kondo)
+  )
 
-(use-package clj-refactor
-  :hook
-  ((clojure-mode . clj-refactor-mode)
-   (clojure-mode . yas-minor-mode))
-  :config
-   (cljr-add-keybindings-with-prefix "C-c C-m"))
+
+;; (use-package clj-refactor
+;;   :hook
+;;   ((clojure-mode . clj-refactor-mode)
+;;    (clojure-mode . yas-minor-mode))
+;;   :config
+;;    (cljr-add-keybindings-with-prefix "C-c C-m"))
 
 ;; (use-package clojure-mode
 ;;   :mode (("\\.clj\\'" . clojure-mode)
@@ -39,3 +36,9 @@
 ;;   :config
 ;;   (setq clojure--prettify-symbols-alist
 ;;         '(("fn" . ?λ))))
+
+(defun region-or-expr (start end)
+  (interactive "r")
+  (if (use-region-p)
+      (cider-eval-region start end)
+    (cider-eval-last-sexp)))

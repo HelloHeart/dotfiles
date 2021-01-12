@@ -105,7 +105,9 @@
   ;;  ("C-c o p" . treemacs-projectile)))
 
 ;; recently added config to lsp-mode and lsp-ui
+
 (use-package lsp-mode
+  :bind ("C-c h" . lsp-describe-thing-at-point)
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          ;; (XXX-mode . lsp)
    (python-mode . lsp)
@@ -116,18 +118,35 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :init
   (add-to-list 'exec-path "~/Build/elixir/elixir-ls/") ;;"path-to-elixir-ls/release"
-
   :commands lsp
   :diminish lsp-mode
   :config
-  (setq lsp-prefer-flymake nil))
+  (setq lsp-prefer-flymake nil
+	lsp-ui-doc-enable nil))
+
+(use-package company-lsp
+  :bind
+  ("C-\\" . company-complete)
+  :config
+  (push 'company-lsp company-backends)
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1))
 
 (use-package lsp-ui :commands lsp-ui-mode
     :config
-    (lsp-ui-flycheck-enable t)
-    (setq lsp-ui-doc-mode nil))
+    (setq lsp-ui-doc-mode nil
+	  lsp-ui-flycheck-enable t))
+
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
 (use-package dap-mode)
 
-;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+;; (use-package eglot
+;;   :init
+;;   (add-to-list 'eglot-server-programs '(elixir-mode "/home/amol/Build/elixir/elixir-ls/language_server.sh"))
+;;   ;; :hook
+;;   ;; ('elixir-mode-hook . 'eglot-ensure)
+;;   )
+;; ;; (use-package dap-LANGUAGE) to load the dap adapter for your language

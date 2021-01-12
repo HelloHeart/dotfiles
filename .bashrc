@@ -127,6 +127,7 @@ esac
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/Build/elixir/bin/"
+export PATH="$PATH:$HOME/Build/elixir/elixir-ls/"
 export PATH="$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH"
 eval "$(pyenv init -)"
 

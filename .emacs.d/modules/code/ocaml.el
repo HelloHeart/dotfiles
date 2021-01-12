@@ -24,13 +24,25 @@
 
 ;;; Code:
 
-(use-package tuareg)
-(require 'ocamlformat)
-(add-hook 'tuareg-mode-hook (lambda ()
-  (define-key tuareg-mode-map (kbd "C-M-<tab>") #'ocamlformat)
-  (add-hook 'before-save-hook #'ocamlformat-before-save)))
+;;(use-package tuareg)
+;;(require 'ocamlformat)
+;;(add-hook 'tuareg-mode-hook (lambda ()
+;;  (define-key tuareg-mode-map (kbd "C-M-<tab>") #'ocamlformat)
+;;  (add-hook 'before-save-hook #'ocamlformat-before-save)))
+
+
 
 ;;(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+
+
+
+;; everything below this (except the provide statement at the very bottom) was already commented out
+
+
+
+
+
+
 ;; ## added by OPAM user-setup for emacs / base ## cfd3c9b7837c85cffd0c59de521990f0 ## you can edit, but keep this line
 ;;(provide 'opam-user-setup)
 
@@ -166,5 +178,5 @@
 ;; ;;     (setq merlin-command 'opam)))
 
 
-(provide 'ocaml)
+;; (provide 'ocaml)
 ;;; ocaml.el ends here
